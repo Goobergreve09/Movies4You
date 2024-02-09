@@ -1,0 +1,89 @@
+.col-md-3.mb-3.card {
+  margin: 10px;
+  width: 225px;
+}
+
+.all-containers {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+}
+
+.all-containers h1 {
+  text-align: center;
+  padding: 20px;
+  color: whitesmoke;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+  /* Set background image properties */
+  background-image: url("https://cdn.wallpapersafari.com/9/52/0Ni3om.jpg");
+  background-size: cover; /* Adjust the background size as needed */
+  background-position: center; /* Center the background image */
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+.card {
+  position: relative;
+}
+
+.card p {
+  font-style: italic;
+}
+
+.btn-delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none; /* Initially hide the delete button */
+  opacity: 0; /* Initially set opacity to 0 */
+}
+
+.card:hover .btn-delete {
+  display: block; /* Show the delete button on hover */
+  opacity: 1; /* Change opacity to 1 on hover */
+  transition: opacity 0.3s ease; /* Add transition effect */
+}
+
+.card img {
+  transition: opacity 0.5s ease;
+}
+.card img:hover {
+  opacity: 50%;
+  cursor: grab;
+}
+
+.card .bi {
+  display: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Show the arrows when hovering over the movie */
+.card:hover .bi {
+  display: inline-block;
+  top: 50px;
+  right: 50px;
+}
+
+.btn.btn-primary.btn-imdb {
+  width: max-content;
+}
+
+.btn-imdb {
+  display: none;
+  background-color: black;
+  font-family: "Josefin Sans", sans-serif;
+  border-color: black;
+  transition: opacity 0.5s ease;
+}
+.btn-imdb:hover {
+  background-color: #232527;
+  border-color: #232527;
+}
+/* Show the IMDb button when hovering over the card */
+.card:hover .btn-imdb {
+  display: inline-block;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies4You</title>
+
+    <link rel="icon" type="image/png" href="https://www.freeiconspng.com/uploads/movie-icon-27.png">
+
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/horror.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/movies.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Movies4You</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Watchlist</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Favorites
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="favorites.html">All-Time</a></li>
+                <li><a class="dropdown-item" href="comedy.html">Comedy</a></li>
+                <li><a class="dropdown-item" href="action.html">Action</a></li>
+                <li><a class="dropdown-item" href="drama.html">Drama</a></li>
+                <li><a class="dropdown-item" href="action.html">Horror</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-5 all-containers">
+        <h1>All-Time Horror Favorites</h1>
+        <div id="horror-favorites-container" class="row sortable">
+            <!-- Favorite movie posters will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let horrorFavorites = JSON.parse(localStorage.getItem('horrorFavorites')) || [];
+    const horrorFavoritesContainer = document.getElementById('horror-favorites-container');
+
+    function renderHorrorFavorites() {
+        horrorFavoritesContainer.innerHTML = '';
+        horrorFavorites.forEach((horrorFavorite, index) => {
+            const horrorFavoriteElement = document.createElement('div');
+            horrorFavoriteElement.classList.add('col-md-3', 'mb-3', 'card', 'position-relative');
+            horrorFavoriteElement.innerHTML = `
+                <div class="movie-info">
+                    <img src="${horrorFavorite.poster}" class="card-img-top" alt="${horrorFavorite.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${horrorFavorite.title}</h5>
+                        <p class="card-text">Genre: ${horrorFavorite.genre}</p>
+                    </div>
+                </div>
+                <a href="https://www.imdb.com/title/${horrorFavorite.imdbID}" target="_blank" class="btn btn-primary btn-imdb custom-btn-imdb" style="position: absolute; top: 5px; left: 5px;">
+                    <i class="bi bi-camera-reels"></i>
+                </a>
+                <button class="btn btn-danger btn-delete" data-index="${index}" style="position: absolute; top: 0; right: 0;">
+                    <i class="bi bi-trash3"></i>
+                </button>
+            `;
+            horrorFavoritesContainer.appendChild(horrorFavoriteElement);
+        });
+    }
+
+    renderHorrorFavorites();
+
+    function deleteHorrorMovie(index) {
+        horrorFavorites.splice(index, 1);
+        localStorage.setItem('horrorFavorites', JSON.stringify(horrorFavorites));
+        renderHorrorFavorites();
+    }
+
+    var sortable = new Sortable(horrorFavoritesContainer, {
+        animation: 150,
+        handle: '.card',
+        ghostClass: 'bg-light',
+        onEnd: function (event) {
+            const newIndex = event.newIndex;
+            const oldIndex = event.oldIndex;
+            const movedItem = horrorFavorites.splice(oldIndex, 1)[0];
+            horrorFavorites.splice(newIndex, 0, movedItem);
+            localStorage.setItem('horrorFavorites', JSON.stringify(horrorFavorites));
+            renderHorrorFavorites();
+        }
+    });
+
+    horrorFavoritesContainer.addEventListener('click', function (event) {
+        // Check if the clicked element is the delete button or the trash icon
+        if (event.target.classList.contains('btn-delete') || event.target.classList.contains('bi-trash3')) {
+            const index = parseInt(event.target.closest('.btn-delete').getAttribute('data-index'));
+            deleteHorrorMovie(index);
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

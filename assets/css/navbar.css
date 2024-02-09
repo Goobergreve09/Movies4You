@@ -1,0 +1,20 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Black background with 50% opacity */
+  }
+  
+  .navbar .nav-link {
+    color: #fff !important; /* White text color */
+    font-weight: bold;
+  }
+  
+  .navbar a {
+    color: #fff !important; 
+  }
+  
+  .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Black background with 50% opacity */
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Black background with 50% opacity */
+  }

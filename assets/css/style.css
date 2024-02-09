@@ -1,0 +1,214 @@
+:root {
+  --main-color: #c982fa; /* Define a custom variable called main-color */
+  --secondary-color: #9eecff;
+  --accent: #123c6e;
+}
+
+body {
+  /* Set background image properties */
+  background-image: url("https://wallpapercave.com/wp/wp5108030.jpg");
+  background-size: cover; /* Adjust the background size as needed */
+  background-position: center; /* Center the background image */
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.main_card {
+  color: #fff;
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 70%;
+  max-height: min-content;
+  background: #00c9ff;
+  background: -webkit-linear-gradient(
+    to right,
+    var(--main-color),
+    var(--secondary-color)
+  );
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(var(--main-color)),
+    to(var(--secondary-color))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    var(--main-color),
+    var(--secondary-color)
+  );
+  background: -o-linear-gradient(
+    left,
+    var(--main-color),
+    var(--secondary-color)
+  );
+  background: linear-gradient(
+    to right,
+    var(--main-color),
+    var(--secondary-color)
+  );
+  -webkit-box-shadow: 0 0 40px rgba(255, 255, 255, 0.9); /* Set box shadow to white with 50% opacity */
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+}
+
+.card_left {
+  width: 90%;
+}
+
+.card_details {
+  width: 90%;
+  padding: 30px;
+  margin-top: -25px;
+}
+
+.card_details h1 {
+  font-size: 30px;
+}
+.card_right img {
+  height: 100%; /* Set height to 100% */
+  width: auto; /* Set width to auto to maintain aspect ratio */
+  object-fit: stretch; /* Ensure the image covers the entire container */
+  border-radius: 2px;
+}
+
+.card_right {
+  /* Ensure the container stretches to accommodate its content */
+  display: flex; /* Vertically center the content */
+}
+
+.card_cat {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.card_cat_people {
+  width: max-content;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  flex-direction: column;
+}
+
+.card_cat_people p {
+  margin: 0; /* Remove default margin */
+}
+
+.PG,
+.year,
+.genre,
+.time {
+  color: fff;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.PG {
+  background: var(--accent);
+  -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 300ms ease-in-out;
+}
+
+.director-actors {
+  padding: 10px;
+}
+
+.director-actors p {
+  margin-bottom: 10px; /* Adjust the margin between each <p> element */
+}
+
+.disc {
+  font-weight: 100;
+  line-height: 27px;
+}
+a {
+  color: var(--accent);
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+}
+.social-btn {
+  margin-left: -10px;
+  margin-right: 10px;
+  display: inline-block;
+  white-space: nowrap; /* Prevents wrapping */
+  width: max-content;
+}
+
+button {
+  color: #fff;
+  border: none;
+  padding: 20px;
+  outline: none;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 10px;
+  background: var(--accent);
+  border-radius: 12px;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 300ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+
+button:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.heart-button {
+  padding: 5px;
+  position: absolute;
+}
+
+.custom-outline-white {
+  color: #fff; /* Text color */
+  border-color: #fff; /* Border color */
+}
+
+.bi-heart-fill {
+  color: darkgrey; /* Default color */
+  font-size: 40px;
+}
+
+.bi-heart-fill.red {
+  color: red; /* Color when clicked */
+}
+
+.watch-button {
+  padding: 5px;
+  position: absolute;
+}
+
+.bi.bi-eye-fill {
+  color: darkgrey; /* Default color */
+  font-size: 40px;
+}
+
+.bi.bi-eye-fill.red {
+  color: lightgreen; /* Default color */
+}
+
+.heart-button,
+.watch-button {
+  position: relative; /* Ensure relative positioning */
+  display: inline-block; /* Display buttons inline */
+  vertical-align: middle; /* Align buttons vertically */
+}
+
+.watch-button {
+  left: 5px; /* Adjust the left position of the eye button */
+}
