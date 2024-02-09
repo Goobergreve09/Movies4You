@@ -12,7 +12,8 @@ The motivation behind this project stems from a deep passion for movies and a de
 ## Table of Contents
 
 1. [Description](#description)  
-2. [How to Use](#usage)  
+2. [How to Use](#usage) 
+3. [Future Improvements](#future-improvements)
 3. [Licensing](#license)  
 4. [Contact Me](#questions)
 
@@ -44,7 +45,11 @@ Once you have a list of multiple movies on a favorites page or watchlist, you ca
 
 
 
+## Future-Improvements
 
+I am currently working on allowing it to be more responsive for mobile and tablet use, as well as increasing it's functionality when different browsers are being used.
+
+My final goal for this application is to implement a backend so that users can login and see other's favorite movies and watch-lists, as well as implementing a user profile. On the profile you will be able to have images and other information. I would also like to implement a websocket for chatting, so that you can chat with other user's in relative to the 90's early 2000's AOL instant messenger. This could be an awesome way to keep in touch with others' movies - and in general bring everyone closer together through the cinematic art form.
 
 ## Contributions
 
